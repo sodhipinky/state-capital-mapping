@@ -10,6 +10,7 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
     <title>State Capital Mapping</title>
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -29,8 +30,9 @@
     <div class="capitals">
         <div class="container-fluid font-monospace">
             <div class="row column-gap-4 mt-4 justify-content-around text-center">
-                <div class="col-md-2 h2">
-                    <button class="btn-secondary bg-white p-3 rounded-5 text-secondary" draggable="true" ondragstart="drag(event)">Chandigarh</button>
+                <div class="col-md-2 h2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <button id="capital-one" class="btn-secondary bg-white p-3 rounded-5 text-secondary"
+                        draggable="true" ondragstart="drag(event)">Chandigarh</button>
                 </div>
                 <div class="col-md-2 h2">
                     <button class="btn-secondary bg-white p-3 rounded-5 text-secondary">Dehradun</button>
@@ -55,7 +57,8 @@
                         <div class="card-header text-center bg-info h4 text-white">
                             Haryana
                         </div>
-                        <div class="card-body bg-info-subtle">
+                        <div id="state-one" class="card-body bg-info-subtle" ondrop="drop(event)"
+                            ondragover="allowDrop(event)">
 
                         </div>
                     </div>

@@ -26,3 +26,32 @@ function drop(event) {
         document.getElementById("btn-submit").disabled = true;
     }
 }
+
+function submit() {
+    let states = document.getElementsByClassName("card");
+    let result = false;
+    for (let index = 0; index < states.length; index++) {
+        switch (states[index].children[0].innerText) {
+            case "Haryana":
+                states[index].children[1].innerText === "Chandigarh" ? result = true : result = false;
+                break;
+            case "Uttar Pradesh":
+                states[index].children[1].innerText === "Lucknow" ? result = true : result = false;
+                break;
+            case "Himachal":
+                states[index].children[1].innerText === "Shimla" ? result = true : result = false;
+                break;
+            case "Uttarakhand":
+                states[index].children[1].innerText === "Dehradun" ? result = true : result = false;
+                break;
+            case "Rajasthan":
+                states[index].children[1].innerText === "Jaipur" ? result = true : result = false;
+                break;
+        }
+    }
+    let message = "That's Incorrect.";
+    if (result) {
+        message = "That's Correct."
+    }
+    document.getElementById("feedback").innerHTML = message;
+}

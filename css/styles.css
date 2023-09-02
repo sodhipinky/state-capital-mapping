@@ -1,3 +1,7 @@
 .capitals .container-fluid .row {
     height: 80px;
 }
+
+.card {
+    height: 18rem;
+}

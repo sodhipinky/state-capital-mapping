@@ -59,8 +59,8 @@ function submit() {
 function reset() {
     let states = document.getElementsByClassName("card");
     for (let index = 0; index < states.length; index++) {
-        if(states[index].children[1].children.length > 0){
-            document.querySelectorAll("div[id^='cap-']")[index].appendChild(states[index].children[1].children[0]);
+        if (states[Math.abs(index - 4)].children[1].children.length > 0) {
+            document.querySelectorAll("div[id^='cap-']")[index].appendChild(states[Math.abs(index - 4)].children[1].children[0]);
         }
     }
     document.getElementById("btn-submit").disabled = true;

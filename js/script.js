@@ -4,7 +4,7 @@ let capitalRow = document.getElementById("capital-row");
 let stateRow = document.getElementById("state-row");
 
 function load() {
-    for(let index = 0; index < capitals.length; index++) {
+    for (let index = 0; index < capitals.length; index++) {
         let capitalDiv = document.createElement("div");
         capitalDiv.setAttribute("class", "col-md-2 h2");
         capitalDiv.setAttribute("id", "cap-" + index);

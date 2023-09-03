@@ -77,7 +77,8 @@ function drop(event) {
 
 function submit() {
     let states = document.getElementsByClassName("card");
-    let result = false; let index = 0;
+    let result = false;
+    let index = 0;
     do {
         switch (states[index].children[0].innerText) {
             case "Haryana":

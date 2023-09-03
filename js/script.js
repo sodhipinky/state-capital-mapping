@@ -5,11 +5,11 @@ let stateRow = document.getElementById("state-row");
 
 function load() {
     for(let index = 0; index < capitals.length; index++) {
-        let div = document.createElement("div");
-        div.setAttribute("class", "col-md-2 h2");
-        div.setAttribute("id", "cap-" + index);
-        div.setAttribute("ondrop", "drop(event)");
-        div.setAttribute("ondragover", "allowDrop(event)");
+        let capitalDiv = document.createElement("div");
+        capitalDiv.setAttribute("class", "col-md-2 h2");
+        capitalDiv.setAttribute("id", "cap-" + index);
+        capitalDiv.setAttribute("ondrop", "drop(event)");
+        capitalDiv.setAttribute("ondragover", "allowDrop(event)");
 
         let button = document.createElement("button");
         button.setAttribute("class", "btn-secondary bg-white p-3 rounded-5 text-secondary");
@@ -18,8 +18,29 @@ function load() {
         button.setAttribute("id", "btn-cap-" + index);
         button.innerText = capitals[index];
 
-        div.appendChild(button);
-        capitalRow.appendChild(div);
+        capitalDiv.appendChild(button);
+        capitalRow.appendChild(capitalDiv);
+
+        let stateDiv = document.createElement("div");
+        stateDiv.setAttribute("class", "col-md-2");
+
+        let stateCard = document.createElement("div");
+        stateCard.setAttribute("class", "card");
+
+        let stateCardHeader = document.createElement("div");
+        stateCardHeader.setAttribute("class", "card-header text-center bg-info h4 text-white");
+        stateCardHeader.innerText = states[index];
+
+        let stateCardBody = document.createElement("div");
+        stateCardBody.setAttribute("class", "card-body bg-info-subtle");
+        stateCardBody.setAttribute("id", "state-" + index);
+        stateCardBody.setAttribute("ondrop", "drop(event)");
+        stateCardBody.setAttribute("ondragover", "allowDrop(event)");
+
+        stateCard.appendChild(stateCardHeader);
+        stateCard.appendChild(stateCardBody);
+        stateDiv.appendChild(stateCard);
+        stateRow.appendChild(stateDiv);
     }
 }
 
@@ -83,6 +104,7 @@ function submit() {
 
 function reset() {
     capitalRow.innerHTML = "";
+    stateRow.innerHTML = "";
     let states = document.getElementsByClassName("card-body");
     for (let index = 0; index < states.length; index++) {
         states[index].innerHTML = "";

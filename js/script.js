@@ -1,3 +1,28 @@
+let capitals = ['Chandigarh', 'Dehradun', 'Jaipur', 'Lucknow', 'Shimla'];
+let states = ['Haryana', 'Uttar Pradesh', 'Himachal', 'Uttarakhand', 'Rajasthan'];
+let capitalRow = document.getElementById("capital-row");
+let stateRow = document.getElementById("state-row");
+
+function load() {
+    for(let index = 0; index < capitals.length; index++) {
+        let div = document.createElement("div");
+        div.setAttribute("class", "col-md-2 h2");
+        div.setAttribute("id", "cap-" + index);
+        div.setAttribute("ondrop", "drop(event)");
+        div.setAttribute("ondragover", "allowDrop(event)");
+
+        let button = document.createElement("button");
+        button.setAttribute("class", "btn-secondary bg-white p-3 rounded-5 text-secondary");
+        button.setAttribute("draggable", "true");
+        button.setAttribute("ondragstart", "drag(event)");
+        button.setAttribute("id", "btn-cap-" + index);
+        button.innerText = capitals[index];
+
+        div.appendChild(button);
+        capitalRow.appendChild(div);
+    }
+}
+
 function drag(event) {
     event.dataTransfer.setData("text", event.target.id);
 }
@@ -57,11 +82,11 @@ function submit() {
 }
 
 function reset() {
-    let states = document.getElementsByClassName("card");
+    capitalRow.innerHTML = "";
+    let states = document.getElementsByClassName("card-body");
     for (let index = 0; index < states.length; index++) {
-        if (states[Math.abs(index - 4)].children[1].children.length > 0) {
-            document.querySelectorAll("div[id^='cap-']")[index].appendChild(states[Math.abs(index - 4)].children[1].children[0]);
-        }
+        states[index].innerHTML = "";
     }
+    load();
     document.getElementById("btn-submit").disabled = true;
 }

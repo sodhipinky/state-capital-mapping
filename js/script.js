@@ -6,7 +6,7 @@ let stateRow = document.getElementById("state-row");
 function load() {
     for (let index = 0; index < capitals.length; index++) {
         let capitalDiv = document.createElement("div");
-        capitalDiv.setAttribute("class", "col-md-2 h2");
+        capitalDiv.setAttribute("class", "col-md-2 h2 p-3");
         capitalDiv.setAttribute("id", "cap-" + index);
         capitalDiv.setAttribute("ondrop", "drop(event)");
         capitalDiv.setAttribute("ondragover", "allowDrop(event)");
@@ -22,7 +22,7 @@ function load() {
         capitalRow.appendChild(capitalDiv);
 
         let stateDiv = document.createElement("div");
-        stateDiv.setAttribute("class", "col-md-2");
+        stateDiv.setAttribute("class", "col-sm-10 col-md-2");
 
         let stateCard = document.createElement("div");
         stateCard.setAttribute("class", "card");
@@ -105,6 +105,7 @@ function submit() {
         message = "That's Correct."
     }
     document.getElementById("feedback").innerHTML = message;
+    document.getElementById("btn-reset").disabled = false;
 }
 
 function reset() {
@@ -116,4 +117,5 @@ function reset() {
     }
     load();
     document.getElementById("btn-submit").disabled = true;
+    document.getElementById("btn-reset").disabled = true;
 }

@@ -1,3 +1,55 @@
 .card {
-    height: 18rem;
+    min-height: 18rem;
+    width: 100%;
+    min-width: fit-content;
+}
+
+.card-header {
+    font-size: large;
+    text-align: center;
+    padding: 0.5rem;
+    word-wrap: break-word;
+}
+
+.btn-capital {
+    padding: 0.5rem;
+    min-width: max-content;
+}
+
+/* Custom CSS for scale-to-fit container */
+.container-fit {
+    width: 100vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+/* Media query for screens with a maximum width of 768px (Tablet and Mobile) */
+@media (max-width: 768px) {
+    
+    #btn-submit {
+        margin-bottom: 10px;
+    }
+    .header {
+        text-align: center;
+    }
+
+    .capitals .row,
+    .states .row,
+    .buttons .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .h4 {
+        font-size: 18px;
+    }
+
+    .card {
+        min-height: 10rem;
+        width: 60%;
+        margin-left: 20%;
+        margin-bottom: 10px;
+    }
 }

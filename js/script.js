@@ -6,13 +6,13 @@ let stateRow = document.getElementById("state-row");
 function load() {
     for (let index = 0; index < capitals.length; index++) {
         let capitalDiv = document.createElement("div");
-        capitalDiv.setAttribute("class", "col-md-2 h2 p-3");
+        capitalDiv.setAttribute("class", "col-md-2 p-2");
         capitalDiv.setAttribute("id", "cap-" + index);
         capitalDiv.setAttribute("ondrop", "drop(event)");
         capitalDiv.setAttribute("ondragover", "allowDrop(event)");
 
         let button = document.createElement("button");
-        button.setAttribute("class", "btn-secondary bg-white p-3 rounded-5 text-secondary");
+        button.setAttribute("class", "btn-capital btn-secondary bg-white rounded-5 text-secondary");
         button.setAttribute("draggable", "true");
         button.setAttribute("ondragstart", "drag(event)");
         button.setAttribute("id", "btn-cap-" + index);
@@ -22,13 +22,13 @@ function load() {
         capitalRow.appendChild(capitalDiv);
 
         let stateDiv = document.createElement("div");
-        stateDiv.setAttribute("class", "col-sm-10 col-md-2");
+        stateDiv.setAttribute("class", "col-md-2");
 
         let stateCard = document.createElement("div");
         stateCard.setAttribute("class", "card");
 
         let stateCardHeader = document.createElement("div");
-        stateCardHeader.setAttribute("class", "card-header text-center bg-info h4 text-white");
+        stateCardHeader.setAttribute("class", "card-header text-center bg-info text-white");
         stateCardHeader.innerText = states[index];
 
         let stateCardBody = document.createElement("div");
@@ -58,6 +58,7 @@ function drop(event) {
             event.preventDefault();
             let data = event.dataTransfer.getData("text");
             event.target.appendChild(document.getElementById(data));
+            document.getElementById((event.target.id)).minWidth = document.getElementById((event.target.id)).maxContent;
         }
         let states = document.getElementById("state-row").getElementsByClassName("card");
         let flag = 0;
